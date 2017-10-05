@@ -1,0 +1,46 @@
+<!-- Pass in data from server.js -->
+<div class="container">
+    <div class="burger-create menu-section">
+        <div>
+            <u><h2>Create a Burger</h2></u>
+        </div>
+        <div>
+            <p>Enter your burger's name:</p>
+        </div>
+        <div class="form-group">
+            <form class="create-form">
+                <textarea id="burger-text" name="burger_name" rows="1" cols="50"></textarea>
+            </form>
+            <div class="create-btn">
+                <button type="submit" class="burger-create-btn btn btn-success">Cook the Burger!</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="burger-menu">
+        <div class="avail-burger menu-section">
+            <u><h2>Burgers Cooked</h2></u>
+            {{#each burgers}} {{#unless devoured}}
+            <div class="burger-div eat-burger">
+                <span class="description"># {{this.id}}</span>
+                <span class="description">{{this.burger_name}}</span>
+                <span><br></span>
+                <button type="button" data-id="{{this.id}}" class="btn eat-btn btn-danger">Eat the Burger!</button>
+            </div>
+            {{/unless}} {{/each}}
+        </div>
+    </div>
+
+    <div class="burger-menu">
+        <div class="order-burger menu-section">
+            <u><h2>Burgers Eaten</h2></u>
+            {{#each burgers}} {{#if devoured}}
+            <div class="burger-div eaten-burger">
+                <span class="description"># {{this.id}}</span>
+                <span class="description">{{this.burger_name}}</span>
+            </div>
+            {{/if}} {{/each}}
+        </div>
+    </div>
+</div>
+
